@@ -1,0 +1,65 @@
+/* import deps */
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+
+@layer base{
+    @import url("https://fast.fonts.net/lt/1.css?apiType=css&c=4dbedc07-65a5-45d9-a320-81504f13b8ca&fontids=5760925,5760945");
+    @font-face{
+        font-family:"Helvetica Now";
+        src: url("../../fonts/effd846d-39d3-439a-a81b-14b26fd5fb7e.woff2") format("woff2"),
+        url("../../fonts/c2e2103e-7e6b-4248-b080-0100c5896596.woff") format("woff");
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+    }
+    @font-face{
+        font-family:"Helvetica Now";
+        src: url("../../fonts/54061ef8-00c5-4e6f-a591-e46d0fb6ff34.woff2") format("woff2"),
+        url("../../fonts/08bae8de-cc16-47d3-86ba-b980143d5096.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+    }
+
+    [xcloak]{
+        display: none !important;
+    }
+
+    strong{
+        @apply font-bold;
+    }
+
+    h3,
+    h4,
+    .heading-4{
+        @apply uppercase;
+    }
+
+    .bard ul{
+        @apply list-none;
+    }
+
+    .bard ul li{
+        @apply before:content-['—'] flex before:mr-[10px];
+    }
+
+    .no-break-mobile br {
+        @apply hidden lg:block;
+    }
+
+}
+
+@layer utilities {
+
+    .page-transition-fade {
+        @apply transition-opacity duration-700 opacity-100;
+    }
+
+    html.is-animating .page-transition-fade {
+        @apply opacity-0 delay-[400ms];
+    }
+}

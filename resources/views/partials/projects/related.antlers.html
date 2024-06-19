@@ -1,0 +1,47 @@
+<!-- section-latest-news -->
+<section
+    x-data="relatedSlider"
+    class="border-t -mx-[20px] md:-mx-[30px] pb-[80px] lg:pb-[210px]"
+>
+
+    <div class="px-[20px] space-y-[20px] md:space-y-0 md:px-[30px] !pr-0 md:flex pt-[30px] gap-x-[30px] overflow-auto">
+
+        <header
+            x-intersect="$el.classList.add('animate-fade-in')"
+            class="md:w-2/12 opacity-0 font-bold text-[15px] leading-[20px] tracking-[-0.04em] md:text-[25px] md:leading-[30px] md:tracking-[-0.02em]">
+            More Work
+        </header>
+
+        <div
+            x-intersect="$el.classList.add('animate-fade-in')"
+            class="opacity-0 swiper [animation-delay:0.2s]"
+            x-data="initSlider($el)"
+        >
+            <div class="swiper-wrapper !w-auto">
+
+                {{ collection:projects }}
+                <article class="relative swiper-slide space-y-[30px] text-[15px] leading-[20px]">
+                    <a href="{{ url }}" class="absolute inset-0 z-20"></a>
+                    <figure class="!mt-0">
+                        {{ thumbnail_image }}
+                        <img class="w-full" src="{{ url }}" alt="{{ alt }}">
+                        {{ /thumbnail_image }}
+                    </figure>
+                    <header>
+                        <h4 class="font-bold">{{ title }}</h4>
+                        {{ project_tagline }}
+                    </header>
+                    <div>
+                        {{ excerpt }}
+                    </div>
+                </article>
+                {{ /collection:projects }}
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>

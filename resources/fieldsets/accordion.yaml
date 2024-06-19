@@ -1,0 +1,63 @@
+title: Accordion
+fields:
+  -
+    handle: section_title
+    field:
+      input_type: text
+      antlers: false
+      display: 'Section Title'
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      read_only: false
+  -
+    handle: content_items
+    field:
+      collapse: false
+      sets:
+        content_item:
+          display: 'Content Item'
+          fields:
+            -
+              handle: heading
+              field:
+                antlers: false
+                display: Heading
+                type: textarea
+                icon: textarea
+                listable: hidden
+                instructions_position: above
+                read_only: false
+            -
+              handle: content
+              field:
+                always_show_set_button: false
+                buttons:
+                  - medium
+                  - bold
+                  - italic
+                  - anchor
+                save_html: false
+                toolbar_mode: fixed
+                link_noopener: false
+                link_noreferrer: false
+                target_blank: false
+                reading_time: false
+                fullscreen: true
+                allow_source: true
+                enable_input_rules: true
+                enable_paste_rules: true
+                antlers: false
+                display: Content
+                type: bard
+                icon: bard
+                listable: hidden
+                instructions_position: above
+                read_only: false
+      display: 'Content Items'
+      type: replicator
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      read_only: false

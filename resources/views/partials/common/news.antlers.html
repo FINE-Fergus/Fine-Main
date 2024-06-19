@@ -1,0 +1,43 @@
+<!-- section-latest-news -->
+<section
+    x-data="newsSlider"
+    class="border-t pb-[80px] -mx-[30px] lg:pb-[210px]"
+>
+
+    <div class="!pr-0 px-[30px] md:flex pt-[20px] md:pt-[30px] space-y-[20px] md:space-y-0 gap-x-[30px] overflow-auto">
+
+        <header
+            x-intersect="$el.classList.add('animate-fade-in')"
+            class="md:w-1/12 opacity-0 font-bold text-[15px] leading-[20px] tracking-[-0.02em] md:text-[25px] md:leading-[30px]">
+            News
+        </header>
+
+        <div
+            x-intersect="$el.classList.add('animate-fade-in')"
+            class="opacity-0 swiper [animation-delay:0.2s]"
+            x-data="initSlider($el)"
+        >
+            <div class="swiper-wrapper !w-auto">
+                {{ collection:news }}
+                <article class="swiper-slide space-y-[20px] md:space-y-[30px] text-[12px] leading-[15px] md:text-[15px] md:leading-[20px] last-of-type:!mr-[20px] last-of-type:md:!pr-[30px] ">
+                    <figure>
+                        {{ thumbnail_image }}
+                        <img class="w-full" src="{{ url }}" alt="{{ alt }}">
+                        {{ /thumbnail_image }}
+                    </figure>
+                    <header>
+                        <h2 class="text-[15px] leading-[20px] md:text-[25px] md:leading-[30px]">{{ title }}</h2>
+                    </header>
+                    <div>
+                        {{ excerpt }}
+                    </div>
+                    <footer>
+                        {{ datestamp format="d/m/y" }}
+                        <p>Month DD, 2022</p>
+                    </footer>
+                </article>
+                {{ /collection:news }}
+            </div>
+        </div>
+    </div>
+</section>

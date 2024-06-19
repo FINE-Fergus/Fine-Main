@@ -1,0 +1,118 @@
+<header
+    x-data="getWeather()"
+    @scroll.window="scrollTop = (window.pageYOffset > 0) ? false : true"
+    class="z-40 p-[10px] sticky left-0 top-0 w-full {{ if segment_1 === "supplies" }}bg-white{{ else }}bg-black{{ /if }}  font-medium pointer-events-none lg:p-[20px] text-[20px] leading-[24px] laptop:text-[24px] laptop:leading-[30px] uppercase flex items-center justify-between w-full relative z-20"
+    :class="{ '!text-white !bg-black' : isMobileMenuOpen }"
+>
+    <ul
+        class="hidden lg:flex space-x-[4px]"
+    >
+        {{ nav:primary }}
+        <li
+            x-intersect="$el.classList.add('animate-fade-in')"
+            class="relative group opacity-0 [animation-delay:0.{{count}}s]"
+        >
+            <a class="pointer-events-auto relative after:content-[','] group-last-of-type:after:content-['']" href="{{ url }}"><span class="relative before:content-[''] before:transition-link ease-e before:h-[2px] before:w-0 group-hover:before:w-full  {{ if segment_1 === "supplies" }}lg:before:bg-black{{ else }}before:bg-white{{ /if }} before:absolute before:top-1/2 before:-translate-y-1/2 {{ if is_current }} before:!w-full {{ /if }}">{{ title }}</span></a>
+        </li>
+        {{ /nav:primary }}
+    </ul>
+    {{ if response_code == "404" }}
+    <div
+        x-intersect="$el.classList.add('animate-fade-in')"
+        class="flex flex-col items-center overflow-hidden origin-top opacity-0 lg:-translate-x-1/2 lg:absolute lg:left-1/2"
+    >
+        {{ svg src="not-fine" class="fill-white h-[32px]" }}
+    </div>
+    {{ else }}
+    <div
+        x-intersect="$el.classList.add('animate-fade-in')"
+        class="flex flex-col items-center overflow-hidden origin-top opacity-0 lg:-translate-x-1/2 lg:absolute lg:left-1/2"
+    >
+        {{ if segment_1 }}<a href="/" class="relative flex flex-col items-center pointer-events-auto ">{{/if}}
+            {{ if segment_1 === "supplies" }}
+                <svg :class="isMobileMenuOpen ? '!fill-white' : ''" class="fill-black transition-all h-[32px]" viewBox="0 0 105 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="fill-current" d="M20.3453 0.881573V4.72157H5.22531V12.7616H18.8653V16.5216H5.22531V29.3616H0.945312V0.881573H20.3453Z" />
+                    <path class="fill-current" d="M28.2331 29.3616H23.9531V0.881573H28.2331V29.3616Z" />
+                    <path class="fill-current" d="M52.7216 9.52157V0.881573H56.8416V29.3616H51.9216L43.1616 15.5616C40.6016 11.5616 38.7482 8.50824 37.6016 6.40157C37.7082 9.57491 37.7616 14.3482 37.7616 20.7216V29.3616H33.6016V0.881573H38.5216L47.3216 14.6816C49.6949 18.4416 51.5482 21.5082 52.8816 23.8816C52.7749 20.6816 52.7216 15.8949 52.7216 9.52157Z" />
+                    <path class="fill-current" d="M82.5544 0.881573V4.72157H66.5144V12.7616H81.0344V16.5216H66.5144V25.5216H82.4344V29.3616H62.2344V0.881573H82.5544Z" />
+                    <path class="fill-current" d="M87.8988 2.72157H84.6987V0.881573H93.0987V2.72157H89.8988V11.0816H87.8988V2.72157ZM100.299 6.04157L102.259 0.881573H104.779V11.0816H102.779V7.80157C102.779 6.14824 102.792 5.06824 102.819 4.56157L102.579 5.24157L100.379 11.0816H98.7387L96.5387 5.24157C96.5121 5.16157 96.4587 5.04157 96.3787 4.88157C96.3254 4.69491 96.2854 4.56157 96.2588 4.48157C96.2854 5.0149 96.2987 6.12157 96.2987 7.80157V11.0816H94.3387V0.881573H96.8587L98.8587 6.20157C99.0987 6.76157 99.3388 7.44157 99.5788 8.24157C99.7654 7.65491 100.005 6.92157 100.299 6.04157Z" />
+                </svg>
+            {{ else }}
+                {{ svg src="logo" class="fill-white h-[32px]" }}
+            {{ /if }}
+        {{ if segment_1 }}</a>{{ /if }}
+    </div>
+    {{ /if }}
+
+    <div
+        x-intersect="$el.classList.add('animate-fade-in')"
+        class="hidden lg:flex gap-x-[5px] [animation-delay:0.8s] opacity-0"
+    >
+        <div x-data x-timeout:1000="$el.innerText=$moment().format('LTS').replace(/\s+/g, '')"></div>
+        <div>
+            <span class="js-weather-temp"></span>&deg;C <span class="js-weather-desc"></span>
+        </div>
+        <div>
+            &amp; fine
+        </div>
+    </div>
+
+    <div x-intersect="$el.classList.add('animate-fade-in')" class="opacity-0 flex items-center lg:hidden gap-x-[9px]">
+        <button
+
+            class="pointer-events-auto uppercase font-medium opacity-1 text-[40px] leading-[35px] translate-y-[1px] transition-all"
+            @click="
+                $el.classList.add('translate-x-[20px]', '!opacity-0'); 
+                window.setTimeout(() => {
+                    isMobileMenuOpen = !isMobileMenuOpen; 
+
+                    if(isMobileMenuOpen){
+                        disableBodyScroll(document.querySelector('#js-mobile-menu'))
+                    } else {
+                        enableBodyScroll(document.querySelector('#js-mobile-menu'))
+                    }
+
+                    $el.classList.remove('translate-x-[20px]', '!opacity-0');
+                }, 250);
+            "
+            x-text="isMobileMenuOpen ? 'Exit' : 'Menu'"
+        >
+        </button>
+        <svg :class="isMobileMenuOpen ? 'block' : 'hidden'" class="h-[28px]" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 28">
+            <g clip-path="url(#a)">
+                <path d="M20 11.936h-2.233c-.689 0-1.33-.332-1.71-.83l-1.52-1.852-1.592 3.987 5.131 10.606h-2.02c-.617 0-1.14-.332-1.377-.83l-4.18-8.661-.523 4.888c-.024.569-.523.996-1.092.996H1.092l.5-1.28c.285-.618.855-1.068 1.567-1.068h4.513l.523-5.577L9.952 7.95h-2.28l-1.401 2.706c-.19.332-.476.522-.903.522a1.02 1.02 0 0 1-.998-.997c0-.19.048-.332.12-.451l1.567-2.966a2.17 2.17 0 0 1 1.948-1.187h5.273a2.8 2.8 0 0 1 2.09.95l2.47 3.084H20V0H3.492v17.37h-.333c-.95 0-1.71.569-2.043 1.4l-.76 2.017h3.136v3.725L0 28h10.927l2.708-2.705a2.95 2.95 0 0 1 1.995-.807h2.137l-3.539 3.511h2.209L20 24.464V11.936ZM14.601 1.14a2.154 2.154 0 1 1 0 4.306 2.154 2.154 0 1 1 0-4.306Z" fill="#fff" />
+            </g>
+            <defs>
+                <clipPath id="a">
+                    <path fill="#fff" d="M0 0h20v28H0z" />
+                </clipPath>
+            </defs>
+        </svg>
+    </div>
+</header>
+
+<div id="js-mobile-menu" x-show="isMobileMenuOpen" x-transition.opacity.duration.500ms class="pt-[100px] flex lg:hidden flex-col justify-between px-[10px] fixed inset-0 w-screen h-[calc(var(--vh,1vh)*100)] z-[19] text-white bg-black">
+    <ul
+        class="flex flex-col space-y-[4px]"
+    >
+        {{ nav:primary }}
+        <li
+            x-intersect="$el.classList.add('animate-fade-in')"
+            class="relative group font-medium opacity-0 [animation-delay:0.{{count}}s]"
+        >
+            <a @click.prevent="window.setTimeout(()=>{isMobileMenuOpen = false;},1000)" class="relative" href="{{ url }}"><span class="uppercase relative text-[40px] leading-[30px] {{ if is_current }} before:content-[''] before:transition-link ease-e before:h-[2px] before:w-full before:bg-white before:absolute before:top-1/2 before:-translate-y-1/2 {{ /if }}">{{ title }}</span></a>
+        </li>
+        {{ /nav:primary }}
+    </ul>
+
+    <div
+        x-intersect="$el.classList.add('animate-fade-in')"
+        class="uppercase text-[28px] leading-[24px] font-medium pb-[15px] opacity-0 [animation-delay:0.8s]"
+    >
+        <div x-data x-timeout:1000="$el.innerText=$moment().format('LTS').replace(/\s+/g, '')">
+        </div>
+       <div>
+          <span class="js-weather-temp"></span>&deg;C <span class="js-weather-desc"></span> &amp; fine
+       </div>
+    </div>
+</div>

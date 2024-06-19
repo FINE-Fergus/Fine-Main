@@ -1,0 +1,27 @@
+<!-- page_builder -->
+<div class="space-y-[80px] lg:space-y-[200px] pt-0 pb-[80px] lg:pb-[200px] lg:pt-[200px]">
+    {{ if display_page_title }}
+    <section
+        x-intersect="$el.classList.add('animate-fade-in-up')"
+        class="text-[25px] leading-[30px] lg:text-[80px] lg:leading-[80px] tracking-[-0.04em]"
+    >
+        {{ title }}
+    </section>
+    {{ /if }}
+    {{ page_content }}
+        {{ if type == "large_text" }}
+            {{ partial src="partials/sections/large_text" }}
+        {{ elseif type == "text_block" }}
+            <section
+                x-intersect="$el.classList.add('animate-fade-in-up')"
+                class="rich-text opacity-0 [animation-delay:0.05s] md:grid md:grid-cols-16 gap-x-[30px]"
+            >
+                <div class="col-span-8 col-end-17 space-y-[40px]">
+                    {{ content }}
+                </div>
+            </section>
+        {{ elseif type == "accordion" }}
+            {{ partial src="partials/sections/accordion" }}
+        {{ /if }}
+    {{ /page_content }}
+</div>

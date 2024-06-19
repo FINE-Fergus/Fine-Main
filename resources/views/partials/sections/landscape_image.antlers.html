@@ -1,0 +1,18 @@
+<section
+    x-intersect="$el.classList.add('animate-fade-in-up')"
+    class="grid overflow-hidden group grid-cols-16"
+>
+    {{ if add_text_column }}
+    <div
+        x-intersect="$el.classList.add('animate-fade-in')"
+        class="opacity-0 col-span-3 text-[15px] leading-[20px] tracking-[-0.02em] {{if image_position === "left" }} col-end-17 {{ /if }}"
+    >
+        {{ content }}
+    </div>
+    {{ /if }}
+    <div class="{{ if add_text_column }}col-span-12{{ else }}col-span-full{{ /if }} {{if image_position === "right" }} col-end-17 {{ else }} order-first {{ /if }}">
+        {{ image }}
+        <img class="object-cover w-full h-full" src="{{ url }}">
+        {{ /image }}
+    </div>
+</section>

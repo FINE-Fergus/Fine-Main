@@ -1,0 +1,191 @@
+<!-- archive_projects -->
+<div
+    x-data="{
+        selectedId: null,
+        init() {
+            // Set the first available tab on the page on page load.
+            this.$nextTick(() => this.select(this.$id('tab', 1)))
+        },
+        select(id) {
+            this.selectedId = id
+        },
+        isSelected(id) {
+            return this.selectedId === id
+        },
+        whichChild(el, parent) {
+            return Array.from(parent.children).indexOf(el) + 1
+        }
+    }"
+    x-id="['tab']"
+    class="pb-[80px] md:pb-[200px] pt-0 lg:pt-[140px]"
+>
+
+    <!-- filter block -->
+    <ul
+        x-ref="tablist"
+        @keydown.right.prevent.stop="$focus.wrap().next()"
+        @keydown.home.prevent.stop="$focus.first()"
+        @keydown.page-up.prevent.stop="$focus.first()"
+        @keydown.left.prevent.stop="$focus.wrap().prev()"
+        @keydown.end.prevent.stop="$focus.last()"
+        @keydown.page-down.prevent.stop="$focus.last()"
+        role="tablist"
+        class="hidden md:flex pb-[30px] space-x-[10px] flex-row">
+
+        <li
+          x-intersect="$el.classList.add('animate-fade-in')"
+          class="opacity-0"
+        >
+            <button
+                role="tab"
+                :id="$id('tab', whichChild($el.parentElement, $refs.tablist))"
+                @click="select($el.id)"
+                @mousedown.prevent
+                @focus="select($el.id)"
+                type="button"
+                :tabindex="isSelected($el.id) ? 0 : -1"
+                :aria-selected="isSelected($el.id)"
+                :class="isSelected($el.id) ? 'bg-black text-white dark:bg-white dark:text-black' : 'text-black bg-white dark:text-white dark:bg-black'"
+                class="relative after:content-[''] after:w-[90px] overflow-hidden after:translate-y-[30px] after:transition-transform after:ease-e transition-colors hover:text-white hover:after:translate-y-0  after:absolute after:top-0 after:left-0 after:bg-black dark:after:bg-white after:h-[30px] w-[90px] text-[12px] leading-none tracking-[-0.02em] flex flex-row h-[30px] uppercase justify-center items-center rounded-[100px] border border-black"
+            >
+                <span class="z-50">Large</span>
+            </button>
+        </li>
+
+        <li
+          x-intersect="$el.classList.add('animate-fade-in')"
+          class="opacity-0 [animation-delay:0.2s]"
+        >
+            <button
+                role="tab"
+                :id="$id('tab', whichChild($el.parentElement, $refs.tablist))"
+                @click="select($el.id)"
+                @mousedown.prevent
+                @focus="select($el.id)"
+                type="button"
+                :tabindex="isSelected($el.id) ? 0 : -1"
+                :aria-selected="isSelected($el.id)"
+                :class="isSelected($el.id) ? 'bg-black text-white' : 'text-black bg-white'"
+                class="relative after:content-[''] after:w-[90px] overflow-hidden after:translate-y-[30px] after:transition-transform after:ease-e transition-colors hover:text-white hover:after:translate-y-0  after:absolute after:top-0 after:left-0 after:bg-black after:h-[30px] w-[90px] text-[12px] leading-none tracking-[-0.02em] flex flex-row h-[30px] uppercase justify-center items-center rounded-[100px] border border-black"
+            >
+                <span class="z-50">Medium</span>
+            </button>
+        </li>
+
+        <li
+          x-intersect="$el.classList.add('animate-fade-in')"
+          class="opacity-0 [animation-delay:0.4s]"
+        >
+            <button
+                role="tab"
+                :id="$id('tab', whichChild($el.parentElement, $refs.tablist))"
+                @click="select($el.id)"
+                @mousedown.prevent
+                @focus="select($el.id)"
+                type="button"
+                :tabindex="isSelected($el.id) ? 0 : -1"
+                :aria-selected="isSelected($el.id)"
+                :class="isSelected($el.id) ? 'bg-black text-white' : 'text-black bg-white'"
+                class="relative after:content-[''] after:w-[90px] overflow-hidden after:translate-y-[30px] after:transition-transform after:ease-e transition-colors hover:text-white hover:after:translate-y-0  after:absolute after:top-0 after:left-0 after:bg-black after:h-[30px] w-[90px] text-[12px] leading-none tracking-[-0.02em] flex flex-row h-[30px] uppercase justify-center items-center rounded-[100px] border border-black"
+            >
+                <span class="z-50">Small</span>
+            </button>
+        </li>
+    </ul>
+
+    <div role="tabpanels">
+        <!-- large view -->
+        <section
+            x-show="isSelected($id('tab', whichChild($el, $el.parentElement)))"
+            :aria-labelledby="$id('tab', whichChild($el, $el.parentElement))"
+            role="tabpanel"
+            x-intersect="$el.classList.add('animate-fade-in')"
+            class="opacity-0 [animation-delay:1s] space-y-[40px] md:space-y-[200px] pb-0 md:pb-[200px]"
+        >
+            {{ collection:projects sort="order" }}
+            <article
+                x-intersect="$el.classList.add('animate-fade-in-up')"
+                class="relative flex flex-col lg:grid gap-y-[20px] lg:gap-y-0 lg:gap-x-[30px] opacity-0 grid-cols-16 group"
+            >
+
+                <hgroup class="col-span-4 space-y-[30px] flex flex-col justify-end order-last {{ switch between='md:order-last|md:order-first' }}">
+                    <div class="text-[15px] leading-[20px] md:text-[25px] md:leading-[30px] tracking-[-0.02em] md:tracking-[-0.04em]">
+                        <h2 class="text-[15px] leading-[20px] md:text-[25px] md:leading-[30px] tracking-[-0.02em] md:tracking-[-0.04em] font-bold">{{ title }}</h2>
+                        {{ project_tagline }}
+                    </div>
+                    <a
+                        href="{{ url }}"
+                        class="hidden relative after:content-[''] after:w-[120px] overflow-hidden after:translate-y-[30px] after:transition-transform after:ease-e group-hover:text-white group-hover:after:translate-y-0  after:absolute after:top-0 after:left-0 after:bg-black after:h-[30px] w-[120px] text-[12px] leading-none tracking-[-0.02em] md:flex flex-row h-[30px] uppercase justify-center items-center rounded-[100px] border border-current"
+                    >
+                        <span class="z-50 relatove">Case Study</span>
+                    </a>
+                </hgroup>
+
+                <div class="relative col-span-12">
+                    {{ partial src="projects/thumbnail" }}
+                </div>
+            </article>
+
+            {{ /collection:projects }}
+        </section>
+
+        <!-- medium view -->
+        <section
+            x-show="isSelected($id('tab', whichChild($el, $el.parentElement)))"
+            :aria-labelledby="$id('tab', whichChild($el, $el.parentElement))"
+            role="tabpanel"
+            x-intersect="$el.classList.add('animate-fade-in')"
+            class="hidden opacity-0 [animation-delay:1s] gap-y-[200px] md:grid grid-cols-16 gap-x-[30px]"
+        >
+            {{ collection:projects sort="order" }}
+
+            <article
+                x-intersect="$el.classList.add('animate-fade-in-up')"
+                class="relative col-span-7 opacity-0 group even:col-end-17"
+            >
+
+            <hgroup class="space-y-[30px] flex flex-col">
+                <div class="relative">
+                    {{ partial src="projects/thumbnail" }}
+                </div>
+                <div class="text-[25px] leading-[30px] tracking-[-0.04em]">
+                    <h2 class="text-[25px] leading-[30px] tracking-[-0.04em] font-bold">{{ title }}</h2>
+                    {{ project_tagline }}
+                </div>
+                {{ partial src="partials/common/link" link_title="Case Study" }}
+                </hgroup>
+            </article>
+            {{ /collection:projects }}
+        </section>
+
+        <!-- small view -->
+        <section
+            x-show="isSelected($id('tab', whichChild($el, $el.parentElement)))"
+            :aria-labelledby="$id('tab', whichChild($el, $el.parentElement))"
+            role="tabpanel"
+            x-intersect="$el.classList.add('animate-fade-in')"
+            class="opacity-0 [animation-delay:1s] hidden md:flex flex-col space-y-[60px]"
+        >
+            {{ collection:projects sort="order" }}
+
+            <article
+                x-intersect="$el.classList.add('animate-fade-in-up')"
+                class="relative grid opacity-0 gap-x-[30px] grid-cols-16 group"
+            >
+
+            <div class="relative col-span-2">
+                {{ partial src="projects/thumbnail" }}
+            </div>
+
+            <hgroup class="col-span-10 space-y-[30px] flex flex-col justify-end">
+                <div class="text-[25px] leading-[30px] tracking-[-0.04em]">
+                    <h2 class="text-[25px] leading-[30px] tracking-[-0.04em] font-bold">{{ title }}</h2>
+                    {{ project_tagline }}
+                </div>
+                </hgroup>
+            </article>
+            {{ /collection:projects }}
+        </section>
+    </div>
+
+</div>

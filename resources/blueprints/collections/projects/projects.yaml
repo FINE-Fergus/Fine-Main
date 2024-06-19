@@ -1,0 +1,203 @@
+title: Projects
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: client_name
+        field:
+          antlers: false
+          display: 'Client Name'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+      -
+        handle: project_content
+        field:
+          display: 'Project Content'
+          type: section
+          icon: section
+          listable: hidden
+      -
+        handle: essence
+        field:
+          always_show_set_button: false
+          buttons:
+            - bold
+            - italic
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          display: Essence
+          type: bard
+          icon: bard
+          listable: hidden
+          instructions_position: above
+      -
+        handle: approach
+        field:
+          always_show_set_button: false
+          buttons:
+            - bold
+            - italic
+            - unorderedlist
+            - removeformat
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          display: Approach
+          type: bard
+          icon: bard
+          listable: hidden
+          instructions_position: above
+      -
+        handle: accolades
+        field:
+          always_show_set_button: false
+          buttons:
+            - bold
+            - italic
+            - removeformat
+            - anchor
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          display: Accolades
+          type: bard
+          icon: bard
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          previews: true
+          remove_empty_nodes: false
+      -
+        handle: delivery
+        field:
+          mode: default
+          create: true
+          display: Delivery
+          type: terms
+          icon: taxonomy
+          listable: hidden
+          instructions_position: above
+          taxonomies:
+            - scope
+      -
+        import: project_builder
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+          validate:
+            - required
+            - 'unique_entry_value:{collection},{id},{site}'
+      -
+        handle: thumbnail_type
+        field:
+          options:
+            image: Image
+            video: Video
+            animation: Animation
+          display: Thumbnail
+          type: button_group
+          icon: button_group
+          listable: hidden
+          instructions_position: above
+          default: image
+      -
+        handle: thumbnail_animation
+        field:
+          input_type: text
+          antlers: false
+          display: Animation
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          instructions: 'Paste in JSON embed code from Lottie'
+          if:
+            thumbnail_type: 'equals animation'
+      -
+        handle: thumbnail_video_clip
+        field:
+          mode: default
+          collections:
+            - video_clips
+          display: 'Video Clip'
+          type: entries
+          icon: entries
+          listable: hidden
+          create: true
+          if:
+            thumbnail_type: 'equals video'
+          instructions_position: above
+      -
+        handle: thumbnail_image
+        field:
+          mode: list
+          container: images
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Image
+          type: assets
+          icon: assets
+          listable: hidden
+          if:
+            thumbnail_type: 'equals image'
+          instructions_position: above
+          show_filename: true
+      -
+        handle: scope
+        field:
+          type: terms
+          taxonomies:
+            - scope
+          display: Deliverables
+          mode: select
+  SEO:
+    display: SEO
+    fields:
+      -
+        handle: seo
+        field:
+          type: seo_pro
+          listable: false
+          display: SEO

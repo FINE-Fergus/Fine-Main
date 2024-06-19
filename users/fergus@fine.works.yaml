@@ -1,0 +1,8 @@
+name: Fergus
+super: true
+id: fab35636-b62d-400b-90c0-bcea30ae7cf1
+password_hash: $2y$12$PxCBxlRvegzr/kC0TW2vNOrb0P/sBHuw5Am4KhNU047rYOPtW95qm
+preferences:
+  collections:
+    pages:
+      after_save: continue_editing

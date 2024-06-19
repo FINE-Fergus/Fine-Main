@@ -1,0 +1,12 @@
+title: Projects
+template: single-projects
+layout: layout
+revisions: false
+route: 'work/{ slug }'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+structure:
+  root: false
+  max_depth: 1

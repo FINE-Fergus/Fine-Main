@@ -1,0 +1,29 @@
+<footer class="flex text-[18px] leading-[18px] lg:leading-[20px] font-medium flex-col space-y-[20px] md:space-y-0 md:grid uppercase grid-cols-12 gap-x-[15px] lg:gap-x-[24px] mx-[10px] lg:mx-[24px] lg:pb-[24px] pb-[10px] md:items-end">
+   <div
+        class="pt-[20px] lg:pt-0 order-last col-span-2 opacity-0 md:order-first"
+        x-intersect="$el.classList.add('animate-fade-in')"
+   >
+        <p>
+            &copy;{{ now|format:Y }}<br class="hidden md:block xl:hidden"> Fine Pty Ltd
+        </p>
+   </div>
+   <div
+        class="relative flex flex-col col-span-3 opacity-0 [animation-delay:0.04s]"
+        x-intersect="$el.classList.add('animate-fade-in')"
+    >
+        <a class="relative" href="{{ footer:contact_link }}"><span class="relative before:content-[''] before:transition-link ease-e before:h-[2px] before:w-0 group-hover:before:w-full {{ if segment_1 === "supplies" }}before:bg-black{{ else }}before:bg-white{{ /if }} before:absolute before:top-1/2 before:-translate-y-1/2 {{ if slug == "contact" }} line-through {{ endif }}">Contact us↗</span></a>
+        <a class="relative md:hidden" href="{{ footer:instagram_link }}"><span class="relative before:content-[''] before:transition-link ease-e before:h-[2px] before:w-0 group-hover:before:w-full {{ if segment_1 === "supplies" }}before:bg-black{{ else }}before:bg-white{{ /if }} before:absolute before:top-1/2 before:-translate-y-1/2">Instagram</span></a>
+    </div>
+    <div
+        class="col-span-5 opacity-0 [animation-delay:0.06s] leading-[18px] lg:leading-[20px]"
+        x-intersect="$el.classList.add('animate-fade-in')"
+    >
+        {{ footer:acknowledgement | nl2br }}
+    </div>
+    <div
+        class="hidden md:block relative col-span-2 opacity-0 [animation-delay:0.08s]"
+        x-intersect="$el.classList.add('animate-fade-in')"
+    >
+        <a class="relative" href="{{ footer:instagram_link }}"><span class="relative before:content-[''] before:transition-link ease-e before:h-[2px] before:w-0 group-hover:before:w-full {{ if segment_1 === "supplies" }}before:bg-black{{ else }}before:bg-white{{ /if }} before:absolute before:top-1/2 before:-translate-y-1/2">Instagram</span></a>
+    </div>
+</footer>

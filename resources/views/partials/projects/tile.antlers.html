@@ -1,0 +1,22 @@
+<article
+    x-intersect="$el.classList.add('animate-fade-in-up')"
+    class="first-of-type:!mt-0 relative flex flex-col md:grid md:gap-x-[30px] opacity-0 grid-cols-16 group"
+>
+
+    <hgroup class="pt-[20px] md:pt-0 col-span-4 space-y-[30px] flex flex-col justify-end order-last {{ switch between='md:!order-first|md:!order-last' }}">
+       <div class="text-[15px] leading-[20px] md:text-[25px] md:leading-[30px] tracking-[-0.02em] md:tracking-[-0.04em]">
+        <h2 class="text-[15px] leading-[20px] md:text-[25px] md:leading-[30px] tracking-[-0.02em] mdtracking-[-0.04em] font-bold">{{ title }}</h2>
+        {{ project_tagline }}
+       </div>
+        <a
+            href="{{ url }}"
+            class="hidden relative after:content-[''] after:w-[120px] overflow-hidden after:translate-y-[30px] after:transition-transform after:ease-e group-hover:text-white group-hover:after:translate-y-0 group-hover:after:!text-black after:absolute after:top-0 after:left-0 after:bg-black after:h-[30px] w-[120px] text-[12px] leading-none tracking-[-0.02em] md:flex flex-row h-[30px] uppercase justify-center items-center rounded-[100px] border border-current"
+        >
+            <span class="z-50 relatove">Case Study</span>
+        </a>
+    </hgroup>
+
+    <div class="relative col-span-12">
+        {{ partial src="projects/thumbnail" }}
+    </div>
+</article>

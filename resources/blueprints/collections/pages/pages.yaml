@@ -1,0 +1,148 @@
+title: Pages
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: display_page_title
+        field:
+          default: false
+          display: 'Display Page Title?'
+          type: toggle
+          icon: toggle
+          listable: hidden
+          instructions_position: above
+          if_any:
+            template: 'not page'
+            slug: 'not home'
+      -
+        import: page_builder
+      -
+        handle: page_content
+        field:
+          collapse: false
+          sets:
+            text_block:
+              display: 'Text Block'
+              fields:
+                -
+                  import: text_block
+            large_text:
+              display: 'Large Text'
+              fields:
+                -
+                  import: large_text
+            accordion:
+              display: Accordion
+              fields:
+                -
+                  import: accordion
+          display: Content
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          if_any:
+            template: 'not page'
+            slug: 'not home'
+      -
+        handle: contact_phone
+        field:
+          input_type: text
+          antlers: false
+          display: 'Contact Phone'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          if:
+            template: 'equals contact'
+      -
+        handle: contact_email
+        field:
+          input_type: text
+          antlers: false
+          display: 'Contact Email'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          if:
+            template: 'equals contact'
+      -
+        handle: positioning_statement
+        field:
+          always_show_set_button: false
+          buttons:
+            - removeformat
+            - anchor
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          display: 'Positioning Statement'
+          type: bard
+          icon: bard
+          listable: hidden
+          instructions_position: above
+          if:
+            slug: 'equals works'
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+          validate:
+            - required
+            - 'unique_entry_value:{collection},{id},{site}'
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+      -
+        handle: author
+        field:
+          type: users
+          display: Author
+          default: current
+          localizable: true
+          max_items: 1
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+  SEO:
+    display: SEO
+    fields:
+      -
+        handle: seo
+        field:
+          type: seo_pro
+          listable: false
+          display: SEO

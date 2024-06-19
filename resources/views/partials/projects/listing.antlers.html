@@ -1,0 +1,7 @@
+<section
+    x-intersect="$el.classList.add('animate-fade-in')"
+    class="opacity-0 [animation-delay:1s] space-y-[28px] tablet:space-y-[45px] laptop:space-y-[60px] desktop:space-y-[85px]">
+    {{ collection:projects sort="order" }}
+        {{ partial src="projects/tile" }}
+    {{ /collection:projects }}
+</section>

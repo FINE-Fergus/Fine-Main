@@ -1,0 +1,16 @@
+title: 'Offset Column'
+fields:
+  -
+    handle: column_1
+    field:
+      collapse: false
+      sets:
+        new_set:
+          display: 'New Set'
+          fields: {  }
+      display: 'Column 1'
+      type: replicator
+      icon: replicator
+      width: 50
+      listable: hidden
+      instructions_position: above

@@ -1,0 +1,109 @@
+title: 'Project Builder'
+fields:
+  -
+    handle: project_builder
+    field:
+      collapse: false
+      sets:
+        landscape_image:
+          display: 'Landscape Image'
+          fields:
+            -
+              handle: image
+              field:
+                mode: list
+                restrict: false
+                allow_uploads: true
+                show_filename: true
+                display: Image
+                type: assets
+                icon: assets
+                instructions: 'Select either single or muiltple landscape images'
+                listable: hidden
+                instructions_position: above
+                container: images
+                read_only: false
+        video:
+          display: Video
+          fields:
+            -
+              handle: video
+              field:
+                max_items: 1
+                mode: default
+                create: true
+                collections:
+                  - video_clips
+                display: Video
+                type: entries
+                icon: entries
+                listable: hidden
+                instructions_position: above
+        portrait_image:
+          display: 'Portrait Image(s)'
+          fields:
+            -
+              handle: space
+              field:
+                options:
+                  none: None
+                  before: Before
+                  after: After
+                default: none
+                display: Space
+                type: button_group
+                icon: button_group
+                instructions: 'Select to put a space either before or after the image (optional and only for single image option)'
+                listable: hidden
+                instructions_position: above
+                width: 50
+            -
+              handle: image
+              field:
+                mode: list
+                restrict: false
+                allow_uploads: true
+                show_filename: true
+                max_files: 4
+                display: Image
+                type: assets
+                icon: assets
+                instructions: 'Select a max of four images.'
+                listable: hidden
+                instructions_position: above
+                container: images
+                read_only: false
+        image_slider:
+          display: 'Image Slider'
+          fields:
+            -
+              handle: autoplay_slider
+              field:
+                default: true
+                display: 'Autoplay Slider?'
+                type: toggle
+                icon: toggle
+                listable: hidden
+                instructions_position: above
+            -
+              handle: images
+              field:
+                mode: grid
+                container: images
+                restrict: false
+                allow_uploads: true
+                show_filename: true
+                display: Images
+                type: assets
+                icon: assets
+                listable: hidden
+                instructions_position: above
+                read_only: false
+      display: 'Project Builder'
+      type: replicator
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      read_only: false
+      if_any:
+        template: 'not page'

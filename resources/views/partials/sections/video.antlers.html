@@ -1,0 +1,23 @@
+{{ video }}
+    <div
+        x-intersect="$el.classList.add('animate-fade-in-up')"
+        class="col-span-12 opacity-0 tablet-landscape:col-span-9 tablet-landscape:col-start-4 laptop:col-span-9 laptop:col-start-4 cinema:col-span-8 cinema:col-start-5 aspect-video"
+    >
+        <video
+            class="w-full"
+            autoplay="autoplay"
+            poster-frame="{{ poster_frame }}{{ url }}{{ /poster_frame }}"
+            loop="loop"
+            muted
+            playsinline=""
+            {{ if controls }}
+            controls
+            {{ /if }}
+        >
+            <source
+                src="{{ video_url }}"
+                type="video/mp4"
+            >
+        </video>
+    </div>
+{{ /video }}

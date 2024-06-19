@@ -1,0 +1,53 @@
+<section class="flex flex-col md:grid grid-cols-16 gap-x-[30px] gap-y-0 border-t pt-[15px] md:pt-[30px]">
+
+    <div class="col-span-3 font-bold border-b md:border-b-0 pb-[15px] md:pb-0 text-[15px] tracking-[-0.02em] leading-[20px] md:text-[25px] md:tracking-[-0.04em] md:leading-[30px]">
+        <p>{{ section_title }}</p>
+    </div>
+
+    <div x-data="{ active: 0 }" class="divide-y space-y-[20px] md:space-y-[30px] col-span-8 col-end-17 text-[15px] tracking-[-0.02em] leading-[20px] md:text-[25px] md:tracking-[-0.04em] md:leading-[30px]">
+        {{ content_items }}
+            {{ if type == "content_item" }}
+            <div x-data="{
+                id: {{ count }},
+                get expanded() {
+                    return this.active === this.id
+                },
+                set expanded(value) {
+                    this.active = value ? this.id : null
+                },
+            }" role="region" class="pt-[20px] md:pt-[30px] md:first-of-type:pt-0">
+
+                <button
+                    x-on:click="expanded = !expanded"
+                    :aria-expanded="expanded"
+                    class="flex flex-row justify-between w-full focus:outline-none"
+                >
+                    <span class="w-4/5 text-left">
+                        {{ heading }}
+                    </span>
+                    <div class="flex justify-end flex-1">
+                        <span x-show="expanded" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="transition-colors duration-500 ease-e stroke-black" d="M6 10.8335H16M11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11C21 16.5228 16.5228 21 11 21Z"/>
+                            </svg>
+                        </span>
+                        <span x-show="!expanded" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="transition-colors duration-500 ease-e stroke-black" d="M6 10.8333H16M10.8438 16L10.8438 6M1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11Z"/>
+                            </svg>
+                        </span>
+                    </div>
+                </button>
+
+                <div x-show="expanded" x-collapse>
+                    <div class="flex flex-col space-y-[20px] md:space-y-[30px] w-4/5 text-[15px] pt-[20px] md:pt-[30px] leading-[20px] tracking-[-0.02em]">
+                        {{ content}}
+                    </div>
+                </div>
+            </div>
+            {{ /if }}
+        {{ /content_items }}
+
+    </div>
+
+</section>

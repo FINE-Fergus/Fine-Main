@@ -1,0 +1,13 @@
+<section class="md:grid space-y-[10px] md:space-y-0 grid-cols-12 border-t gap-x-[24px] py-[25px] md:last-of-type:!mt-0 last-of-type:border-b pb-[50px] md:pb-[50px] border-white">
+    <div
+        x-intersect="$el.classList.add('animate-fade-in')"
+        class="col-span-5 opacity-0 space-y-[10px] font-medium text-[20px] leading-[24px] lg:text-[24px] lg:leading-[28px]">
+        {{ title }}
+    </div>
+
+    <div
+        x-intersect="$el.classList.add('animate-fade-in')"
+        class="col-span-6 opacity-0 [animation-delay:0.5s] space-y-[10px] text-[20px] leading-[24px] lg:text-[24px] lg:leading-[28px]">
+        {{ content }}
+    </div>
+</section>

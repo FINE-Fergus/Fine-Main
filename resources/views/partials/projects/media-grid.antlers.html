@@ -1,0 +1,42 @@
+<section class="section--grid gap-y-[14px] tablet:gap-y-[15px] laptop:gap-y-[18px] pt-[28px] tablet:pt-[90px] laptop:pt-[130px]">
+    {{ media_grid }}
+        {{ if type == "landscape_image" }}
+            {{ image }}
+            <div
+                x-intersect="$el.classList.add('animate-fade-in-up')"
+                class="col-span-12 opacity-0 tablet-landscape:col-span-9 tablet-landscape:col-start-4 cinema:col-span-8 cinema:col-start-5">
+                <img class="w-full" src="{{ url }}" alt="">
+            </div>
+            {{ /image }}
+        {{ elseif type == "portrait_image" }}
+        <div
+            x-intersect="$el.classList.add('animate-fade-in-up')"
+            class="opacity-0 flex {{if space == "before" }} items-end justify-end {{ /if }} col-span-12 tablet-landscape:col-span-9 tablet-landscape:col-start-4 cinema:col-span-8 cinema:col-start-5">
+            {{ image }}
+            <div class="tablet:w-1/2">
+                <img class="w-full" src="{{ url }}" alt="">
+           </div>
+           {{ /image }}
+        </div>
+        {{ elseif type == "video" }}
+            {{ video }}
+            <div
+                x-intersect="$el.classList.add('animate-fade-in-up')"
+                class="col-span-12 opacity-0 tablet-landscape:col-span-9 tablet-landscape:col-start-4 cinema:col-span-8 cinema:col-start-5 aspect-video"
+            >
+            <video
+                class="object-cover w-full h-full"
+                autoplay="autoplay"
+                poster-frame="{{ poster_frame }}{{ url }}{{ /poster_frame }}"
+                loop="loop"
+                muted
+                src="{{ video_url }}"
+                playsinline=""
+                type="video/mp4"
+            >
+            </video>
+            </div>
+            {{ /video }}
+        {{ /if }}
+    {{ /media_grid }}
+</section>

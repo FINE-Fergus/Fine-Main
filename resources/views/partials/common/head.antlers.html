@@ -1,0 +1,30 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="{{ favicon:favicon_img }}">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#000000">
+
+    {{ if {installed:statamic/seo-pro} }}
+    {{ seo_pro:meta }}
+    {{ else }}
+    <title>{{ title ?? site:name }}</title>
+    {{ /if }}
+
+    <link rel="stylesheet" href="{{ mix src='css/main.css' }}">
+
+    {{ tracking_codes:scripts }}
+    {{ if tracking_codes:disable_all }}{{ else }}
+        {{ if enable }}
+            {{ if position == 'inside_head' }}
+                {{ script }}
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
+    {{ /tracking_codes:scripts }}
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>

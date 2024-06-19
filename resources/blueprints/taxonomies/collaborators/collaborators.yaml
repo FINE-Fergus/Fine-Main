@@ -1,0 +1,49 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: role
+        field:
+          options:
+            motion-design: 'Motion Design'
+            production: Production
+            photography: Photography
+          multiple: false
+          clearable: false
+          searchable: true
+          taggable: true
+          push_tags: true
+          cast_booleans: false
+          display: Role
+          type: select
+          icon: select
+          listable: hidden
+          instructions_position: above
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          validate:
+            - required
+  SEO:
+    display: SEO
+    fields:
+      -
+        handle: seo
+        field:
+          type: seo_pro
+          listable: false
+          display: SEO
+title: Collaborators

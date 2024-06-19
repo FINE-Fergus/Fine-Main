@@ -1,0 +1,44 @@
+<section class="grid grid-cols-12 gap-x-[24px] gap-y-[50px] pt-[25px] pb-[70px] border-t text-[20px] leading-[24px] lg:text-[24px] lg:leading-[28px]">
+  <div
+  x-intersect="$el.classList.add('animate-fade-in')"
+  class="font-medium opacity-0 col-span-12 tablet:col-span-5 tablet-landscape:col-span-5">
+  {{ title_column }}
+</div>
+
+<div
+  x-intersect="$el.classList.add('animate-fade-in')"
+  class="col-span-5 tablet:col-span-3 tablet-landscape:col-span-2  opacity-0 [animation-delay:0.5s]">
+  {{ column_1 }}
+</div>
+
+<div
+  x-intersect="$el.classList.add('animate-fade-in')"
+  class="col-span-5 tablet:col-span-3 tablet-landscape:col-span-2 opacity-0 [animation-delay:0.5s]">
+  {{ column_2 }}
+</div>
+
+<div class="col-span-0 tablet:col-span-5 tablet-landscape:hidden"></div>
+
+<div
+  x-intersect="$el.classList.add('animate-fade-in')"
+  class="col-span-4 tablet:col-span-2 tablet-landscape:col-span-2 opacity-0 [animation-delay:0.5s]">
+  {{ column_3 }}
+</div>
+
+<div class="tablet-landscape:col-span-5"></div>
+
+<div
+  x-intersect="$el.classList.add('animate-fade-in')"
+  class="col-span-6 tablet:col-span-3 tablet-landscape:col-span-2 opacity-0 [animation-delay:0.5s]">
+  {{ column_4 }}
+</div>
+
+<div class="tablet:col-span-5 tablet-landscape:hidden"></div>
+
+<div
+  x-intersect="$el.classList.add('animate-fade-in')"
+  class="col-span-6 tablet:col-span-3 tablet-landscape:col-span-2 opacity-0 [animation-delay:0.5s]">
+  {{ column_5 }}
+</div>
+
+</section>

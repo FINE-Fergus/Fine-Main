@@ -1,0 +1,22 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Title (Desktop)'
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: title_mobile
+        field:
+          input_type: text
+          antlers: false
+          display: 'Title (Mobile)'
+          type: text
+          icon: text
+          listable: hidden

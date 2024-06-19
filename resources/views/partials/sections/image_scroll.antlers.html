@@ -1,0 +1,20 @@
+    <div class="swiper hidden md:block" x-data="horizontalScroller($el)">
+        <div class="swiper-wrapper w-full h-full flex pb-[70px]">
+            {{ images }}
+                <div class="swiper-slide" style="display: inline-block; vertical-align: top; margin-right: 18px; height: 400px; width: auto;">
+                    <img src="{{ url }}" alt="" style="height: 100%; width: auto; object-fit: cover; object-position: center;">
+                </div>
+            {{ /images }}
+        </div>
+      </div>
+
+      {{# mobile version #}}
+      <div class="swiper block tablet:hidden" x-data="horizontalScroller($el)">
+        <div class="swiper-wrapper w-full h-full flex pb-[70px]">
+            {{ images }}
+                <div class="swiper-slide" style="display: inline-block; vertical-align: top; margin-right: 18px; height: 250px; width: auto;">
+                    <img src="{{ url }}" alt="" style="height: 100%; width: auto; object-fit: cover; object-position: center;">
+                </div>
+            {{ /images }}
+        </div>
+      </div>

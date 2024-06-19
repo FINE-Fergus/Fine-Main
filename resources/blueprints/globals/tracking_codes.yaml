@@ -1,0 +1,87 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: scripts
+        field:
+          collapse: false
+          previews: true
+          sets:
+            script:
+              display: Script
+              fields:
+                -
+                  handle: enable
+                  field:
+                    default: false
+                    display: 'Enable the script'
+                    type: toggle
+                    icon: toggle
+                    instructions: 'Once enabled, the script will be inserted into the website'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: name
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Name
+                    type: text
+                    icon: text
+                    instructions: 'Enter a `name` to identify your script easily'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: script
+                  field:
+                    theme: material
+                    mode: javascript
+                    mode_selectable: false
+                    indent_type: tabs
+                    indent_size: 4
+                    key_map: default
+                    line_numbers: true
+                    line_wrapping: true
+                    display: Script
+                    type: code
+                    icon: code
+                    instructions: 'Paste your script `code` in the box below'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: position
+                  field:
+                    options:
+                      inside_head: 'Head — Code will be inserted after the opening <head> tag'
+                      inside_body: 'Body — Code will be inserted after the opening <body> tag'
+                      before_body: 'Footer — Code will be inserted before the closing </body> tag'
+                    multiple: false
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    display: Position
+                    type: select
+                    icon: select
+                    instructions: 'Select where you want to insert the `script` into your page'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                    default: inside_head
+          display: Scripts
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          instructions: 'Click on the `+` button to add a `script` to be inserted into the site `header`, `body` or `footer`.'

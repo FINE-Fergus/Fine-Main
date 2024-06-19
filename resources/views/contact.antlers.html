@@ -1,0 +1,20 @@
+<section class="flex flex-col items-center justify-center w-screen h-[calc(var(--vh,1vh)*100-215px)] px-[10px] lg:px-[20px]">
+    <div class="flex flex-col w-full space-y-[5px] lg:space-y-[20px] uppercase text-[20px] leading-[24px] lg:text-[24px] lg:leading-[28px]">
+        <div class="flex lg:space-x-[20px] pb-[5px] lg:pb-[20px] border-b border-white">
+            <div class="w-1/2 lg:w-5/12">
+                <p class="font-medium">Call</p>
+            </div>
+            <div class="w-1/2 text-right lg:w-7/12 lg:text-left">
+                <a href="tel:{{ contact_phone replace=" "  }}">{{ contact_phone }}</a>
+            </div>
+        </div>
+        <div class="flex lg:space-x-[20px]">
+            <div class="w-1/2 lg:w-5/12">
+                <p class="font-medium">Email</p>
+            </div>
+            <div class="w-1/2 text-right lowercase lg:w-7/12 lg:text-left">
+                <a href="mailto:{{ contact_email }}">{{ contact_email | nl2br }}</a>
+            </div>
+        </div>
+    </div>
+</section>

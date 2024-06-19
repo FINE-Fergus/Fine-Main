@@ -1,0 +1,75 @@
+<!doctype html>
+<html
+    x-data="{
+        isPageReady: false,
+        isNavOpen : false,
+        pageChanging: false,
+        scrollBackTop: false,
+        scrollDown : false,
+        scrollTop : true,
+        isMobileMenuOpen: false,
+    }"
+    x-init="
+        setTimeout(() => isPageReady = true, 500);
+        document.addEventListener('pageChanging', () => {  pageChanging = true });
+        document.addEventListener('pageChanging', () => {  pageChanging = false });
+    "
+    :class="{
+        'page-ready' : isPageReady,
+    }"
+    class="scrollbar-hide scroll-smooth"
+    lang="{{ site:short_locale }}"
+>
+
+    {{ partial src="partials/common/head" }}
+
+    <body
+        class="min-h-[calc(var(--vh,1vh)*100-55px)] lg:min-h-[calc(var(--vh,1vh)*100-70px)] text-white bg-black font-normal text-[20px] leading-[24px] lg:text-[24px] lg:leading-[28px] selection:text-black selection:bg-white page-slug--{{ slug }} page-template--{{ template }} font-sans antialiased"
+    >
+
+    {{ tracking_codes:scripts }}
+        {{ if tracking_codes:disable_all }}
+        {{ else }}
+            {{ if enable }}
+                {{ if position == 'inside_body' }}
+                    {{ script }}
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+    {{ /tracking_codes:scripts }}
+
+        <main
+            id="swup"
+            class="flex flex-col justify-between min-h-[calc(var(--vh,1vh)*100)] {{ if segment_1 === "supplies" }} text-black bg-white {{ else }} text-white bg-black {{ /if }} page-transition-fade"
+        >
+            <!-- header -->
+            {{ partial src="partials/common/header" }}
+            <!-- nav -->
+            {{ partial src="partials/common/nav" }}
+
+            <div class="w-full h-full">
+                {{ template_content }}
+            </div>
+
+            {{ if segment_1 }}
+            <!-- footer -->
+            {{ partial src="partials/common/footer" }}
+            {{ /if }}
+        </main>
+
+    </body>
+
+    {{ partial src="partials/common/foot" }}
+
+    {{ tracking_codes:scripts }}
+        {{ if tracking_codes:disable_all }}
+        {{ else }}
+            {{ if enable }}
+                {{ if position == 'before_body' }}
+                    {{ script }}
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+    {{ /tracking_codes:scripts }}
+
+</html>

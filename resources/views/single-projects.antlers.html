@@ -1,0 +1,91 @@
+<!-- projects_builder -->
+<div class="space-y-[10px] lg:space-y-[24px] mx-[10px] lg:mx-[24px] pb-[360px]">
+    {{ project_builder }}
+    <!-- {{ type }}_module -->
+    {{ partial src="partials/sections/{type}" }}
+    {{ /project_builder }}
+
+    <section class="space-y-[70px] border-b pb-[80px]">
+
+        <article
+            x-intersect="$el.classList.add('animate-fade-in-up')"
+            class="w-2/12 opacity-0"
+        >
+            <h2 class="uppercase text-[50px] leading-[40px] lg:text-[100px] lg:leading-[82px] font-medium pt-[25px]">fine<span>&trade;</span><br>and<br>{{ client_name }}</h2>
+        </article>
+
+        <article class="lg:grid pt-[20px] grid-cols-12 space-y-[15px] pt-[25px] lg:space-y-0 gap-x-[24px] border-t border-white text-[20px] leading-[24px] lg:text-[24px] lg:leading-[28px]">
+            <div class="col-span-5">
+                <h4
+                    x-intersect="$el.classList.add('animate-fade-in')"
+                    class="opacity-0 heading-4"
+                >
+                    Essence
+                </h4>
+            </div>
+            <div
+                x-intersect="$el.classList.add('animate-fade-in')"
+                class="col-span-6 opacity-0 space-y-[15px]"
+            >
+                {{ essence }}
+            </div>
+        </article>
+
+        <article class="lg:grid pt-[20px] grid-cols-12 space-y-[15px] pt-[25px] lg:space-y-0 gap-x-[24px] border-t border-white text-[20px] leading-[24px] lg:text-[24px] lg:leading-[28px]">
+            <div class="col-span-5">
+                <h4
+                    x-intersect="$el.classList.add('animate-fade-in')"
+                    class="opacity-0 heading-4 [animation-delay:0.2s]"
+                >
+                    Approach
+                </h4>
+            </div>
+            <div
+                x-intersect="$el.classList.add('animate-fade-in')"
+                class="col-span-6 opacity-0 space-y-[15px] bard"
+            >
+                {{ approach }}
+            </div>
+        </article>
+
+        <article class="flex flex-col md:grid pt-[20px] grid-cols-12 gap-y-[20px] pt-[25px] lg:space-y-0 gap-x-[24px] border-t border-white text-[20px] leading-[24px] lg:text-[24px] lg:leading-[28px]">
+            <div class="col-span-5">
+                <h4
+                    x-intersect="$el.classList.add('animate-fade-in')"
+                    class="opacity-0 heading-4 [animation-delay:0.4s]"
+                >
+                    Delivery
+                </h4>
+            </div>
+            <div class="col-span-6">
+                <ul class="flex flex-row flex-wrap gap-y-[10px] gap-x-[10px]">
+                    {{ delivery }}
+                    <li
+                        x-intersect="$el.classList.add('animate-fade-in')"
+                        class="flex flex-inline whitespace-nowrap opacity-0 [animation-delay:0.0{{count}}s] uppercase items-center justify-center text-[18px] leading-[13px] rounded-[20px] h-[40px] px-[20px] border border-white">
+                        {{ title }}
+                    </li>
+                    {{ /delivery }}
+                </ul>
+            </div>
+        </article>
+        {{ if accolades }}
+        <article class="lg:grid pt-[20px] grid-cols-12 space-y-[15px] pt-[25px] lg:space-y-0 gap-x-[24px] border-t border-white">
+            <div class="col-span-5">
+                <h4
+                    x-intersect="$el.classList.add('animate-fade-in')"
+                    class="opacity-0 heading-4 [animation-delay:0.2s]"
+                >
+                    Accolades
+                </h4>
+            </div>
+            <div
+                x-intersect="$el.classList.add('animate-fade-in')"
+                class="col-span-6 opacity-0 space-y-[10px] text-[24px] leading-[28px]"
+            >
+                {{ accolades }}
+            </div>
+        </article>
+        {{ /if }}
+    </section>
+</div>

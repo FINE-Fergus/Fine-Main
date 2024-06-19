@@ -1,0 +1,152 @@
+title: Accolades
+fields:
+  -
+    handle: heading
+    field:
+      input_type: text
+      antlers: false
+      display: Heading
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: year
+    field:
+      input_type: text
+      antlers: false
+      display: Year
+      type: text
+      icon: text
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: projects
+    field:
+      collapse: false
+      always_show_set_button: false
+      previews: true
+      buttons:
+        - anchor
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      antlers: false
+      remove_empty_nodes: false
+      display: Projects
+      type: bard
+      icon: bard
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: awards
+    field:
+      collapse: false
+      always_show_set_button: false
+      previews: true
+      buttons:
+        - anchor
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      antlers: false
+      remove_empty_nodes: false
+      display: Awards
+      type: bard
+      icon: bard
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: year_2
+    field:
+      input_type: text
+      antlers: false
+      display: Year
+      type: text
+      icon: text
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: projects_2
+    field:
+      collapse: false
+      always_show_set_button: false
+      previews: true
+      buttons:
+        - anchor
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      antlers: false
+      remove_empty_nodes: false
+      display: Projects
+      type: bard
+      icon: bard
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: awards_2
+    field:
+      collapse: false
+      always_show_set_button: false
+      previews: true
+      buttons:
+        - anchor
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      antlers: false
+      remove_empty_nodes: false
+      display: Awards
+      type: bard
+      icon: bard
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false

@@ -1,0 +1,162 @@
+title: References
+fields:
+  -
+    handle: heading
+    field:
+      input_type: text
+      antlers: false
+      display: Heading
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: content
+    field:
+      antlers: false
+      display: Content
+      type: textarea
+      icon: textarea
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: name
+    field:
+      input_type: text
+      antlers: false
+      display: Name
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: title_company
+    field:
+      input_type: text
+      antlers: false
+      display: 'Title / Company'
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: content_2
+    field:
+      antlers: false
+      display: Content
+      type: textarea
+      icon: textarea
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: name_2
+    field:
+      input_type: text
+      antlers: false
+      display: Name
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: title_company_2
+    field:
+      input_type: text
+      antlers: false
+      display: 'Title / Company'
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: content_3
+    field:
+      antlers: false
+      display: Content
+      type: textarea
+      icon: textarea
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: name_3
+    field:
+      input_type: text
+      antlers: false
+      display: Name
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: title_company_3
+    field:
+      input_type: text
+      antlers: false
+      display: 'Title / Company'
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: content_4
+    field:
+      antlers: false
+      display: Content
+      type: textarea
+      icon: textarea
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: name_4
+    field:
+      input_type: text
+      antlers: false
+      display: Name
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: title_company_4
+    field:
+      input_type: text
+      antlers: false
+      display: 'Title / Company'
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false

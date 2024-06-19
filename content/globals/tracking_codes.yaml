@@ -1,0 +1,19 @@
+title: 'Tracking Codes'
+data:
+  scripts:
+    -
+      enable: true
+      name: 'Google Analytics'
+      script: |-
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGQZL7FKLF"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-CGQZL7FKLF');
+        </script>
+      position: inside_head
+      type: script
+      enabled: true

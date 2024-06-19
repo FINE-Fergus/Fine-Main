@@ -1,0 +1,102 @@
+<div
+    x-data="{
+        currentFilter: 'all'
+    }"
+>
+    <section :class="$store.scrollDirection == 'down' ? '!translate-y-[-100%]' : 'translate-y-0'" class="sticky translate-y-0 transition-all top-[55px] lg:top-[70px] left-0 z-10 bg-white px-[10px] lg:px-0 lg:mx-[20px] overflow-scroll scrollbar-hide w-full border-y border-black flex items-center h-[40px] lg:h-[60px]">
+        <ul class="flex space-x-[15px] w-full">
+            <li
+                x-intersect="$el.classList.add('animate-fade-in')"
+                class="font-medium opacity-0 group"
+            >
+                <button
+                    class="flex relative items-center space-x-[5px] uppercase"
+                    @click="currentFilter = 'all'"
+                >
+                    <span :class="currentFilter == 'all' ? 'bg-black' : ''" class="block group-hover:bg-black transtion-colors ease-out h-[20px] w-[20px] border rounded-full">
+                    </span>
+                    <span class="relative before:content-[''] before:transition-link ease-e before:h-[2px] before:w-0 group-hover:before:w-full  {{ if segment_1 === "supplies" }}before:bg-black{{ else }}before:bg-white{{ /if }} before:absolute before:top-1/2 before:-translate-y-1/2">
+                        All
+                    </span>
+                </button>
+            </li>
+            {{ taxonomy from="product_categories"  }}
+                <li
+                    x-intersect="$el.classList.add('animate-fade-in')"
+                    class="opacity-0 group  [animation-delay:0.{{count}}s]"
+                >
+                    <button
+                        class="flex relative font-medium items-center space-x-[5px] uppercase"
+                        @click="currentFilter = '{{ title | slugify }}'"
+                    >
+                        <span :class="currentFilter == '{{ title | slugify }}' ? 'bg-black' : ''" class="block group-hover:bg-black transtion-colors ease-out h-[20px] w-[20px] border rounded-full"></span>
+                        <span class="relative before:content-[''] before:transition-link ease-e before:h-[2px] before:w-0 group-hover:before:w-full  {{ if segment_1 === "supplies" }}before:bg-black{{ else }}before:bg-white{{ /if }} before:absolute before:top-1/2 before:-translate-y-1/2">
+                        {{ title }}
+                        </span>
+                    </button>
+                </li>
+            {{ /taxonomy }}
+        </ul>
+    </section>
+
+    <section class="px-[10px] lg:px-[20px] pb-[360px] flex pt-[24px] flex-col gap-y-[80px] lg:gap-y-[74px] divide-y divide-black">
+
+        {{ collection:supplies sort="order" }}
+        <article
+            x-show="'all{{ product_categories }},{{ title | slugify }}{{ /product_categories }}'.split(',').indexOf(currentFilter) != -1"
+            class="flex flex-col space-y-[20px] last-of-type:border-b pt-[20px]"
+        >
+
+            <div
+                x-intersect="$el.classList.add('animate-fade-in-up')"
+                class="opacity-0"
+            >
+                {{ product_image }}
+                <img class="object-cover w-full h-full" src="{{ url }}" alt="">
+                {{ /product_image }}
+            </div>
+
+            <div class="lg:grid space-y-[70px] lg:space-y-0 grid-cols-12 gap-x-[20px] gap-y-[70px]">
+
+                <div
+                    x-intersect="$el.classList.add('animate-fade-in')"
+                    class="col-span-5 opacity-0"
+                >
+                    <h2 class="font-medium uppercase">
+                        {{ title }}
+                        <span>
+                            [{{ product_sku }}]
+                        </span>
+                    </h2>
+                </div>
+
+                <div
+                    x-intersect="$el.classList.add('animate-fade-in')"
+                    class="col-span-7 !mt-[10px] opacity-0 [animation-delay:0.03s]"
+                >
+                    {{ product_description }}
+                </div>
+
+                <div class="col-span-full space-y-[25px] lg:space-y-0 pt-[18px] border-t flex flex-col lg:flex-row lg:space-x-[20px]">
+                    <div
+                        class="w-full lg:w-5/12 opacity-0 [animation-delay:0.2s]"
+                        x-intersect="$el.classList.add('animate-fade-in')"
+                    >
+                        <h4>Buy</h4>
+                    </div>
+
+                    <div class="flex flex-inline space-y-[10px] lg:space-y-0 flex-col lg:flex-row lg:space-x-[10px] w-full lg:w-7/12">
+                        {{ links }}
+                            {{ if type == "link" }}
+                                {{ partial src="partials/common/link" }}
+                            {{ /if }}
+                        {{ /links }}
+                    </div>
+
+                </div>
+
+            </div>
+        </article>
+        {{ /collection:supplies }}
+    </section>
+</div>

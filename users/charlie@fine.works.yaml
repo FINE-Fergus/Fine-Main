@@ -1,0 +1,8 @@
+name: Charlie
+super: true
+id: 2fb7ed12-2ac0-4bf1-9490-eb793661f0b1
+password_hash: $2y$10$7ezispU6CkyZzwFrtrtjCufCyxFjh7VI5pxx7gCBUXNyNPFuEhS7K
+preferences:
+  collections:
+    projects:
+      after_save: continue_editing

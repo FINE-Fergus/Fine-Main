@@ -1,0 +1,20 @@
+title: Visibility
+fields:
+  -
+    handle: visibility
+    field:
+      placeholder: Automatic
+      options:
+        desktop: 'Desktop Only'
+        mobile: 'Mobile Only'
+      multiple: false
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      display: Visibility
+      type: select
+      icon: select
+      listable: hidden
+      instructions_position: above

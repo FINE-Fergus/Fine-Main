@@ -1,0 +1,24 @@
+<section
+    x-intersect="$el.classList.add('animate-fade-in-up')"
+    class="section opacity-0 section--grid pt-[28px] tablet:pt-[30px] laptop:pt-[36px] desktop:pt-[50px]">
+        <div class="col-span-2 tablet:col-span-6 tablet-landscape:col-span-4 tablet-landscape:col-start-4 cinema:col-start-5">
+            {{ collection:previous in="projects" as="pagination" limit="1" sort="order" }}
+                {{ pagination }}
+                    {{ if !no_results }}
+                        <a href="{{ url }}">Previous project</a>
+                    {{ else }}
+                    {{ endif }}
+                {{ /pagination }}
+            {{ /collection:previous }}
+        </div>
+
+        <div class="col-span-2 text-right tablet:col-span-6 tablet-landscape:col-span-5 cinema:col-span-4">
+            {{ collection:next in="projects" as="pagination" limit="1" sort="order" }}
+                {{ pagination }}
+                    {{ if !no_results }}
+                        <a href="{{ url }}">Next project</a>
+                    {{ endif }}
+                {{ /pagination }}
+            {{ /collection:next }}
+        </div>
+</section>

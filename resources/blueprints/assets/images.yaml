@@ -1,0 +1,112 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: alt
+        field:
+          type: text
+          display: 'Alt Text'
+          instructions: 'Description of the image'
+          listable: hidden
+          input_type: text
+          antlers: false
+      -
+        handle: preferred_aspect_ratio
+        field:
+          default: automatic
+          options:
+            automatic: Automatic
+            square: Square
+            landscape: Landscape
+            portrait: Portrait
+          display: 'Preferred Aspect Ratio'
+          type: button_group
+          icon: button_group
+          listable: hidden
+      -
+        handle: spacers
+        field:
+          display: Spacers
+          type: section
+          icon: section
+          instructions: 'Controls how much space to inject before or after the photo when displayed within a Image Grid on the Project Page.'
+          listable: hidden
+      -
+        handle: column_width
+        field:
+          options:
+            col-span-1: '1 Column'
+            col-span-2: '2 Columns'
+            col-span-3: '3 Columns'
+            col-span-4: '4 Columns'
+            col-span-5: '5 Columns'
+            col-span-6: '6 Columns'
+            col-span-7: '7 Columns'
+            col-span-8: '8 Columns'
+            col-span-9: '9 Columns'
+            col-span-10: '10 Columns'
+            col-span-11: '11 Columns'
+            col-span-12: 'Full Width'
+          multiple: false
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: 'Column Width'
+          type: select
+          icon: select
+          instructions: 'Select column width of image for image grid on project page'
+          listable: hidden
+      -
+        handle: space_before
+        field:
+          default: none
+          options:
+            none: None
+            col-span-1: '1 Col'
+            col-span-2: '2 Col'
+            col-span-3: '3 Col'
+            col-span-4: '4 Col'
+            col-span-5: '5 Col'
+            col-span-6: '6 Col'
+            col-span-7: '7 Col'
+            col-span-8: '8 Col'
+            col-span-9: '9 Col'
+          multiple: false
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: Before
+          type: select
+          icon: select
+          listable: hidden
+      -
+        handle: space_after
+        field:
+          default: none
+          options:
+            none: None
+            col-span-1: '1 Col'
+            col-span-2: '2 Col'
+            col-span-3: '3 Col'
+            col-span-4: '4 Col'
+            col-span-5: '5 Col'
+            col-span-6: '6 Col'
+            col-span-7: '7 Col'
+            col-span-8: '8 Col'
+            col-span-9: '9 Col'
+          multiple: false
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: After
+          type: select
+          icon: select
+          listable: hidden
+    

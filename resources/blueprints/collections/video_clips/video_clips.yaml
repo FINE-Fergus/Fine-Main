@@ -1,0 +1,141 @@
+title: 'Video Clips'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: source
+        field:
+          options:
+            asset: 'Local Asset'
+            external: 'External URL'
+          display: Source
+          type: button_group
+          icon: button_group
+          listable: hidden
+      -
+        handle: video_file
+        field:
+          mode: grid
+          container: images
+          restrict: true
+          allow_uploads: true
+          max_files: 1
+          display: 'Video File'
+          type: assets
+          icon: assets
+          listable: hidden
+          if:
+            source: 'not external'
+          instructions_position: above
+          read_only: false
+          folder: videos
+          show_filename: true
+      -
+        handle: video_url
+        field:
+          input_type: url
+          display: 'Video URL'
+          type: text
+          icon: text
+          instructions: 'Vimeo direct link recommended ([more info &rarr;](https://help.vimeo.com/hc/en-us/articles/224823567-Third-party-player-links))'
+          listable: hidden
+          if:
+            source: 'equals external'
+      -
+        handle: poster_frame
+        field:
+          mode: grid
+          container: images
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: 'Poster Frame'
+          type: assets
+          icon: assets
+          instructions: 'Choose a poster frame to show as a placeholder in a case the video fails to load.'
+          listable: hidden
+          if:
+            source: 'equals external'
+          instructions_position: above
+          show_filename: true
+      -
+        handle: video_player_settings
+        field:
+          display: 'Video Player Settings'
+          type: section
+          icon: section
+          listable: hidden
+      -
+        handle: autoplay
+        field:
+          display: Autoplay
+          default: true
+          type: toggle
+          icon: toggle
+          width: 25
+          listable: hidden
+      -
+        handle: loop
+        field:
+          display: Loop
+          default: true
+          type: toggle
+          icon: toggle
+          width: 25
+          listable: hidden
+      -
+        handle: muted
+        field:
+          display: Muted
+          default: true
+          type: toggle
+          icon: toggle
+          width: 25
+          listable: hidden
+      -
+        handle: controls
+        field:
+          display: 'Show Controls'
+          type: toggle
+          icon: toggle
+          width: 25
+          listable: hidden
+      -
+        handle: preferred_video_control_colour
+        field:
+          default: dark-content
+          options:
+            dark-content: 'Dark Content'
+            light-content: 'Light Content'
+          display: 'Preferred Video Control Colour'
+          type: button_group
+          icon: button_group
+          instructions: 'Indicates whether the video controls should be light or dark. Note this is only a preference and will only be honoured by browsers that support it, such as Google Chrome.'
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+          validate:
+            - required
+  SEO:
+    display: SEO
+    fields:
+      -
+        handle: seo
+        field:
+          type: seo_pro
+          listable: false
+          display: SEO

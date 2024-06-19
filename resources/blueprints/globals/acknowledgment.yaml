@@ -1,0 +1,12 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: acknowledgment
+        field:
+          antlers: false
+          display: Acknowledgment
+          type: textarea
+          icon: textarea
+          listable: hidden

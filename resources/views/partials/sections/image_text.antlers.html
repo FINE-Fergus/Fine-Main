@@ -1,0 +1,14 @@
+<section class="md:grid space-y-[10px] md:space-y-0 grid-cols-12 border-t gap-x-[24px] py-[25px] md:last-of-type:!mt-0 last-of-type:border-b pb-[70px] md:pb-[25px] border-white ">
+    <div
+        x-intersect="$el.classList.add('animate-fade-in')"
+        class="col-span-5 border-0 opacity-0"
+    >
+        <img src="{{ image }}" alt="">
+    </div>
+    <div
+        x-intersect="$el.classList.add('animate-fade-in')"
+        class="flex opacity-0 space-y-[10px] md:space-y-0 [animation-delay:0.5s] flex-col justify-between col-span-6 text-[20px] leading-[24px] lg:text-[24px] lg:leading-[28px]">
+        {{ content }}
+    </div>
+</section>
+ 

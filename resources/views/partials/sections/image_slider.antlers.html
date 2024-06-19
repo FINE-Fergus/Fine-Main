@@ -1,0 +1,11 @@
+<section class="" x-data="imageSlider">
+    <div class="swiper" x-data="initSlider($el)" >
+       <div class="swiper-wrapper !w-auto">
+            {{ images }}
+            <div class="h-full swiper-slide">
+                <img class="object-cover w-full h-full" src="{{ url }}" alt="">
+            </div>
+            {{ /images }}
+       </div>
+    </div>
+</section>

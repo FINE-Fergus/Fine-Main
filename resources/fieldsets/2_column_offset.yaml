@@ -1,0 +1,57 @@
+title: '2 Column Offset'
+fields:
+  -
+    handle: section_title
+    field:
+      input_type: text
+      antlers: false
+      display: 'Section Title'
+      type: text
+      icon: text
+      instructions: Optional
+      listable: hidden
+      instructions_position: above
+  -
+    handle: column_1
+    field:
+      collapse: false
+      sets:
+        text_block:
+          display: 'Text Block'
+          fields:
+            -
+              import: text_block
+        image_block:
+          display: 'Image Block'
+          fields:
+            -
+              import: image_block
+      display: 'Column 1'
+      type: replicator
+      icon: replicator
+      width: 50
+      listable: hidden
+      instructions_position: above
+      read_only: false
+  -
+    handle: column_2
+    field:
+      collapse: false
+      sets:
+        text_block:
+          display: 'Text Block'
+          fields:
+            -
+              import: text_block
+        image_block:
+          display: 'Image Block'
+          fields:
+            -
+              import: image_block
+      display: 'Column 2'
+      type: replicator
+      icon: replicator
+      width: 50
+      listable: hidden
+      instructions_position: above
+      read_only: false

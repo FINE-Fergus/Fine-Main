@@ -1,0 +1,27 @@
+<section
+    @mouseenter="ctaHover = true"
+    @mouseleave="ctaHover = false"
+    class="flex flex-col space-y-[20px] md:space-y-0 md:grid grid-cols-16 gap-x-[30px]"
+>
+
+    <article
+        x-intersect="$el.classList.add('animate-fade-in-up')"
+        class="col-span-12 opacity-0"
+    >
+        {{ image }}
+           <div class="overflow-hidden">
+                <img class="object-cover w-full h-full" src="{{ url }}" alt="">
+           </div>
+        {{ /image }}
+    </article>
+
+    <article
+        x-intersect="$el.classList.add('animate-fade-in-up')"
+        class="flex flex-col [animation-delay:0.05s] justify-end col-span-3 opacity-0 col-end-17">
+        <div class="text-[25px] leading-[30px] tracking-[-0.04em] space-y-[30px]">
+            {{ content }}
+            {{ partial src="partials/common/link" link_title="{{ link_title }}" link="{{ link }}"  }}
+        </div>
+
+    </article>
+</section>

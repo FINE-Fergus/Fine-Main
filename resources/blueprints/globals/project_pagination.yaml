@@ -1,0 +1,65 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: all_projects
+        field:
+          input_type: text
+          antlers: false
+          display: 'All Projects'
+          type: text
+          icon: text
+          instructions: 'Display under a `single project`'
+          listable: hidden
+      -
+        handle: more_projects
+        field:
+          input_type: text
+          antlers: false
+          display: 'More Projects'
+          type: text
+          icon: text
+          instructions: 'Display on the `homepage` at the end of the last project'
+          listable: hidden
+      -
+        handle: show_projects_pagination
+        field:
+          default: false
+          display: 'Show Projects pagination?'
+          type: toggle
+          icon: toggle
+          listable: hidden
+      -
+        handle: show_project_name
+        field:
+          default: true
+          display: 'Show Next and Previous Project Names'
+          type: toggle
+          icon: toggle
+          listable: hidden
+          instructions: 'By deafult, project names are used for pagination.  Uncheck to use custom text'
+          if:
+            show_projects_pagination: 'equals true'
+      -
+        handle: previous_project
+        field:
+          input_type: text
+          antlers: false
+          display: 'Previous Project'
+          type: text
+          icon: text
+          listable: hidden
+          if:
+            show_project_name: 'equals false'
+      -
+        handle: next_project
+        field:
+          input_type: text
+          antlers: false
+          display: 'Next Project'
+          type: text
+          icon: text
+          listable: hidden
+          if:
+            show_project_name: 'equals false'

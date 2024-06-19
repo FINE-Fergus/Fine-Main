@@ -1,0 +1,101 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: product_image
+        field:
+          mode: grid
+          container: images
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Product Image'
+          type: assets
+          icon: assets
+          instructions: 'Add multiple images for slider'
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: product_sku
+        field:
+          input_type: text
+          prepend: '['
+          append: ']'
+          antlers: false
+          display: 'Product Sku'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: product_description
+        field:
+          antlers: false
+          display: 'Product Description'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: links
+        field:
+          collapse: false
+          sets:
+            link:
+              display: Link
+              fields:
+                -
+                  handle: link_title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Link Title'
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: link
+                  field:
+                    display: Link
+                    type: link
+                    icon: link
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: Links
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+  SEO:
+    display: SEO
+    fields:
+      -
+        handle: seo
+        field:
+          type: seo_pro
+          listable: false
+          display: SEO
+title: Supplies

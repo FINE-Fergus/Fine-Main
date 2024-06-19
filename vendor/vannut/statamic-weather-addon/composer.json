@@ -1,0 +1,30 @@
+{
+    "name": "vannut/statamic-weather-addon",
+    "description": "Get weather for a location",
+    "type": "statamic-addon",
+    "autoload": {
+        "psr-4": {
+            "Vannut\\StatamicWeather\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Richard Verbruggen"
+        }
+    ],
+    "support": {
+        "email": "support@vannut.nl"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Weather Forecast",
+            "description": "Display the current weather or a 7-day forecast for any lat/lon on earth.",
+            "editions": ["free", "coffee"]
+        },
+        "laravel": {
+            "providers": [
+                "Vannut\\StatamicWeather\\ServiceProvider"
+            ]
+        }
+    }
+}

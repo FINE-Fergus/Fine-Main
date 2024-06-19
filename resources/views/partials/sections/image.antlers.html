@@ -1,0 +1,23 @@
+<section class="section--grid">
+        {{ if caption }}
+            <div
+                x-intersect="$el.classList.add('animate-fade-in-up')"
+                class="hidden col-span-2 opacity-0 [animation-delay:0.1s] tablet:col-span-3 tablet:inline-block laptop:col-start-4 cinema:col-start-5">
+                <p class="mb-0">{{ caption }}</p>
+            </div>
+            {{ /if }}
+            {{ if credit }}
+            <div
+                x-intersect="$el.classList.add('animate-fade-in-up')"
+                class="hidden [animation-delay:0.2s] col-span-2 opacity-0 tablet:col-span-4 tablet:inline-block">
+                <p class="mb-0 opacity-[0.35]">{{ credit }}</p>
+            </div>
+        {{ /if }}
+        <div
+            x-intersect="$el.classList.add('animate-fade-in-up')"
+            class="opacity-0 [animation-delay:0.3s] {{ if display_caption == "true" }} tablet:pt-[10px] {{ /if }} relative col-span-full laptop:col-start-4 cinema:col-start-5 laptop:col-span-9 cinema:col-span-8">
+            {{ image }}
+            <img class="w-full" src="{{ url }}" alt="">
+            {{ /image }}
+       </div>
+</section>

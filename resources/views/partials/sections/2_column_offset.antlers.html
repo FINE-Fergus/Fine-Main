@@ -1,0 +1,21 @@
+<section class="flex flex-col md:grid grid-cols-16 space-y-[40px] md:space-y-0 gap-x-[30px]">
+
+    <div class="col-span-3 text-[15px] leading-[20px] tracking-[-0.02em] md:text-[25px] md:leading-[30px] md:tracking-[-0.04em]">
+        {{ column_1 }}
+        {{ if type == "text_block" }}
+            {{ content }}
+        {{ /if }}
+        {{ /column_1 }}
+    </div>
+
+    <div class="col-span-8 col-end-17 space-y-[40px] md:space-y-[80px] text-[15px] leading-[20px] tracking-[-0.02em] md:text-[25px] md:leading-[30px] md:tracking-[-0.04em]">
+        {{ column_2 }}
+        {{ if type == "text_block" }}
+            <div class="space-y-[40px]">
+                {{ content }}
+            </div>
+        {{ /if }}
+        {{ /column_2 }}
+    </div>
+
+</section>

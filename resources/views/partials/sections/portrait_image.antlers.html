@@ -1,0 +1,17 @@
+{{ if add_text_column }}
+
+{{ else }}
+<section class="space-y-[10px] lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-y-[24px] lg:gap-x-[24px]">
+    {{ if space == "before" }}
+        <div class="col-span-6">
+        </div>
+    {{ /if }}
+    {{ image }}
+       <div
+            x-intersect="$el.classList.add('animate-fade-in-up')"
+            class="relative col-span-6 overflow-hidden duration-700 opacity-0 transtion-transform ease-e group ">
+            <img src="{{ url }}" alt="" class="object-cover w-full h-full">
+       </div>
+    {{ /image }}
+</section>
+{{ /if }}
