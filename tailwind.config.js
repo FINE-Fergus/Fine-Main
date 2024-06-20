@@ -155,7 +155,3 @@ module.exports = {
       require('tailwindcss-debug-screens'),
     ],
   }
-
-
-//   'tablet': '640px',
-//   'tablet-landscape': '1190px',
