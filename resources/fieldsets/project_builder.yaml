@@ -22,7 +22,6 @@ fields:
                 listable: hidden
                 instructions_position: above
                 container: images
-                read_only: false
         video:
           display: Video
           fields:
@@ -72,7 +71,6 @@ fields:
                 listable: hidden
                 instructions_position: above
                 container: images
-                read_only: false
         image_slider:
           display: 'Image Slider'
           fields:
@@ -98,12 +96,18 @@ fields:
                 icon: assets
                 listable: hidden
                 instructions_position: above
-                read_only: false
+        portrait_assets:
+          display: 'Portrait Assets'
+          fields:
+            -
+              import: portrait_assets
       display: 'Project Builder'
       type: replicator
       icon: replicator
       listable: hidden
       instructions_position: above
-      read_only: false
+      visibility: visible
+      always_save: false
+      previews: true
       if_any:
         template: 'not page'
