@@ -100,15 +100,15 @@ fields:
           display: 'Portrait Assets'
           fields:
             -
-              handle: image
+              handle: field_1
               field:
                 mode: list
                 container: images
                 restrict: false
                 allow_uploads: true
                 show_filename: true
-                max_files: 2
-                display: Image
+                max_files: 1
+                display: 'Field 1'
                 type: assets
                 icon: assets
                 width: 50
@@ -117,14 +117,47 @@ fields:
                 visibility: visible
                 always_save: false
             -
-              handle: video
+              handle: field_2
               field:
-                max_items: 2
+                mode: list
+                container: images
+                restrict: false
+                allow_uploads: true
+                show_filename: true
+                max_files: 1
+                display: 'Field 2'
+                type: assets
+                icon: assets
+                width: 50
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
+            -
+              handle: field_3
+              field:
+                max_items: 1
                 mode: default
                 create: true
                 collections:
                   - video_clips
-                display: Video
+                display: 'Field 3'
+                type: entries
+                icon: entries
+                width: 50
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
+            -
+              handle: field_4
+              field:
+                max_items: 1
+                mode: default
+                create: true
+                collections:
+                  - video_clips
+                display: 'Field 4'
                 type: entries
                 icon: entries
                 width: 50
