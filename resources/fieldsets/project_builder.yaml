@@ -100,15 +100,15 @@ fields:
           display: 'Portrait Assets'
           fields:
             -
-              handle: field_1
+              handle: image
               field:
                 mode: list
                 container: images
                 restrict: false
                 allow_uploads: true
                 show_filename: true
-                max_files: 1
-                display: 'Field 1'
+                max_files: 2
+                display: Image
                 type: assets
                 icon: assets
                 width: 50
@@ -117,47 +117,14 @@ fields:
                 visibility: visible
                 always_save: false
             -
-              handle: field_2
+              handle: video
               field:
-                mode: list
-                container: images
-                restrict: false
-                allow_uploads: true
-                show_filename: true
-                max_files: 1
-                display: 'Field 2'
-                type: assets
-                icon: assets
-                width: 50
-                listable: hidden
-                instructions_position: above
-                visibility: visible
-                always_save: false
-            -
-              handle: field_3
-              field:
-                max_items: 1
+                max_items: 2
                 mode: default
                 create: true
                 collections:
                   - video_clips
-                display: 'Field 3'
-                type: entries
-                icon: entries
-                width: 50
-                listable: hidden
-                instructions_position: above
-                visibility: visible
-                always_save: false
-            -
-              handle: field_4
-              field:
-                max_items: 1
-                mode: default
-                create: true
-                collections:
-                  - video_clips
-                display: 'Field 4'
+                display: Video
                 type: entries
                 icon: entries
                 width: 50
