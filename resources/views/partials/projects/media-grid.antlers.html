@@ -37,6 +37,47 @@
             </video>
             </div>
             {{ /video }}
+            {{ elseif type == "portrait_assets" }}
+            {{ if field_1 }}
+  <div x-intersect="$el.classList.add('animate-fade-in-up')" class="opacity-0 col-span-12 tablet:col-span-6"> <img src="{{ field_1 }}" alt="" ></div>
+  {{ /if }}
+  {{ if field_2 }}
+  <div x-intersect="$el.classList.add('animate-fade-in-up')" class="opacity-0 col-span-12 tablet:col-span-6"> <img src="{{ field_2 }}" alt=""></div>
+  {{ /if }}
+
+  {{ if field_3 }}
+  {{ field_3 }} 
+  <div x-intersect="$el.classList.add('animate-fade-in-up')" class="opacity-0 col-span-12 tablet:col-span-6">  
+    <video
+    class="object-cover w-full h-full"
+    autoplay="autoplay"
+    loop="loop"
+    muted
+    src="{{ video_url }}"
+    playsinline=""
+    type="video/mp4"
+>
+</video>
+    {{ /field_3 }}
+    {{ /if }}  
+  </div>
+
+  {{ if field_4 }}
+  {{ field_4 }} 
+  <div x-intersect="$el.classList.add('animate-fade-in-up')" class="opacity-0 col-span-12 tablet:col-span-6">  
+    <video
+    class="object-cover w-full h-full"
+    autoplay="autoplay"
+    loop="loop"
+    muted
+    src="{{ video_url }}"
+    playsinline=""
+    type="video/mp4"
+>
+</video>
+    {{ /field_4 }}
+    {{ /if }}
+  </div>
         {{ /if }}
     {{ /media_grid }}
 </section>
