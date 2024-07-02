@@ -1,15 +1,18 @@
-<section class="grid grid-cols-12 gap-x-[10px] gap-y-[10px] tablet-landscape:gap-x-[24px] tablet-landscape:gap-y-[24px]">
+<section 
+    class="grid grid-cols-12 gap-x-[10px] gap-y-[10px] tablet-landscape:gap-x-[24px] tablet-landscape:gap-y-[24px] opacity-0 "
+    x-intersect="$el.classList.add('animate-fade-in-up')">
 
-  {{ if field_1 }}
-  <div x-intersect="$el.classList.add('animate-fade-in-up')" class="opacity-0 col-span-12 tablet:col-span-6"> <img src="{{ field_1 }}" alt="" ></div>
-  {{ /if }}
-  {{ if field_2 }}
-  <div x-intersect="$el.classList.add('animate-fade-in-up')" class="opacity-0 col-span-12 tablet:col-span-6"> <img src="{{ field_2 }}" alt=""></div>
+  {{ if image }}
+  {{ image }}
+  <div class="col-span-12 tablet:col-span-6"> 
+    <img src="{{ url }}" alt="" >
+  </div>
+  {{ /image }}
   {{ /if }}
 
-  {{ if field_3 }}
-  {{ field_3 }} 
-  <div x-intersect="$el.classList.add('animate-fade-in-up')" class="opacity-0 col-span-12 tablet:col-span-6">  
+  {{ if video }}
+  {{ video }} 
+  <div class="col-span-12 tablet:col-span-6">  
     <video
     class="object-cover w-full h-full"
     autoplay="autoplay"
@@ -20,25 +23,8 @@
     type="video/mp4"
 >
 </video>
-    {{ /field_3 }}
-    {{ /if }}  
-  </div>
-
-  {{ if field_4 }}
-  {{ field_4 }} 
-  <div x-intersect="$el.classList.add('animate-fade-in-up')" class="opacity-0 col-span-12 tablet:col-span-6">  
-    <video
-    class="object-cover w-full h-full"
-    autoplay="autoplay"
-    loop="loop"
-    muted
-    src="{{ video_url }}"
-    playsinline=""
-    type="video/mp4"
->
-</video>
-    {{ /field_4 }}
-    {{ /if }}
-  </div>
-
+</div>
+{{ /video }}
+{{ /if }}  
+  
 </section>
