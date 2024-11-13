@@ -16,6 +16,7 @@
         "jacksleight/statamic-bard-texstyle": "^1.0",
         "laravel/framework": "^8.82",
         "laravel/tinker": "^2.5",
+        "laravel/sanctum": "^2.11",
         "league/flysystem-aws-s3-v3": "~1.0",
         "statamic/cms": "3.3.*",
         "statamic/seo-pro": "^3.1",
