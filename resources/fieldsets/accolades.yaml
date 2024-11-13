@@ -13,7 +13,7 @@ fields:
       visibility: visible
       always_save: false
   -
-    handle: year
+    handle: year_1
     field:
       input_type: text
       antlers: false
@@ -26,7 +26,7 @@ fields:
       visibility: visible
       always_save: false
   -
-    handle: projects
+    handle: projects_1
     field:
       collapse: false
       always_show_set_button: false
@@ -54,7 +54,7 @@ fields:
       visibility: visible
       always_save: false
   -
-    handle: awards
+    handle: awards_1
     field:
       collapse: false
       always_show_set_button: false
