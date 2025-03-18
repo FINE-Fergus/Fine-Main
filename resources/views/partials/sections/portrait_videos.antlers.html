@@ -1,0 +1,30 @@
+<section 
+    class="grid grid-cols-12 gap-x-[10px] gap-y-[10px] tablet-landscape:gap-x-[24px] tablet-landscape:gap-y-[24px] opacity-0 "
+    x-intersect="$el.classList.add('animate-fade-in-up')">
+
+  {{ if video_1 }}
+  {{ video_1 }}
+  <div class="col-span-12 tablet:col-span-6"> 
+    <img src="{{ url }}" alt="" >
+  </div>
+  {{ /video_1 }}
+  {{ /if }}
+
+  {{ if video_2 }}
+  {{ video_2 }} 
+  <div class="col-span-12 tablet:col-span-6">  
+    <video
+    class="object-cover w-full h-full"
+    autoplay="autoplay"
+    loop="loop"
+    muted
+    src="{{ video_url }}"
+    playsinline=""
+    type="video/mp4"
+>
+</video>
+</div>
+{{ /video_2 }}
+{{ /if }}  
+  
+</section>
