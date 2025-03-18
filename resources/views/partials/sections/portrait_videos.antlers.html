@@ -4,9 +4,18 @@
 
   {{ if video_1 }}
   {{ video_1 }}
-  <div class="col-span-12 tablet:col-span-6"> 
-    <img src="{{ url }}" alt="" >
-  </div>
+  <div class="col-span-12 tablet:col-span-6">  
+    <video
+    class="object-cover w-full h-full"
+    autoplay="autoplay"
+    loop="loop"
+    muted
+    src="{{ video_url }}"
+    playsinline=""
+    type="video/mp4"
+>
+</video>
+</div>
   {{ /video_1 }}
   {{ /if }}
 

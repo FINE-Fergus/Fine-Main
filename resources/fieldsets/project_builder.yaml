@@ -138,7 +138,7 @@ fields:
             -
               handle: video_1
               field:
-                max_items: 2
+                max_items: 1
                 mode: default
                 create: true
                 collections:
@@ -154,7 +154,7 @@ fields:
             -
               handle: video_2
               field:
-                max_items: 2
+                max_items: 1
                 mode: default
                 create: true
                 collections:
