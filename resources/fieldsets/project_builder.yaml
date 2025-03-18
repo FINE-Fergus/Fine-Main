@@ -132,6 +132,41 @@ fields:
                 instructions_position: above
                 visibility: visible
                 always_save: false
+        portrait_videos:
+          display: 'Portrait Videos'
+          fields:
+            -
+              handle: video
+              field:
+                max_items: 2
+                mode: default
+                create: true
+                collections:
+                  - video_clips
+                display: Video
+                type: entries
+                icon: entries
+                width: 50
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
+            -
+              handle: video
+              field:
+                max_items: 2
+                mode: default
+                create: true
+                collections:
+                  - video_clips
+                display: Video
+                type: entries
+                icon: entries
+                width: 50
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
       display: 'Project Builder'
       type: replicator
       icon: replicator
