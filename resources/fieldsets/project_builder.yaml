@@ -136,14 +136,14 @@ fields:
           display: 'Portrait Videos'
           fields:
             -
-              handle: video
+              handle: video_1
               field:
                 max_items: 2
                 mode: default
                 create: true
                 collections:
                   - video_clips
-                display: Video
+                display: Video 1
                 type: entries
                 icon: entries
                 width: 50
@@ -152,14 +152,14 @@ fields:
                 visibility: visible
                 always_save: false
             -
-              handle: video
+              handle: video_2
               field:
                 max_items: 2
                 mode: default
                 create: true
                 collections:
                   - video_clips
-                display: Video
+                display: Video 2
                 type: entries
                 icon: entries
                 width: 50
